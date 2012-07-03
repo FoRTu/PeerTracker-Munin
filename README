@@ -1,6 +1,5 @@
-
 PeerTracker-Munin
-==================
+=================
 
 This is a plugin for Munin (http://munin-monitoring.org) with which we can monitor the bittorrent tracker PeerTracker (http://code.google.com/p/peertracker).
 
@@ -9,7 +8,7 @@ PeerTracker is written in PHP and database can be hosted on MySQL or SQLite. Thi
 
 
 PeerTracker-Munin
-==================
+=================
 
 Esto es un plugin para Munin (http://munin-monitoring.org) con el cual podremos monitorizar el tracker bittorrent PeerTracker (http://code.google.com/p/peertracker).
 
