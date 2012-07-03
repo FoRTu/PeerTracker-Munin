@@ -1,0 +1,42 @@
+#!/bin/bash
+
+peers=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(ip) from pt_peers" --skip-column-name`
+seeders=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(state) FROM pt_peers WHERE state=1" --skip-column-name`
+leechers=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(state) FROM pt_peers WHERE state=0" --skip-column-name`
+torrents=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(DISTINCT info_hash) FROM pt_peers" --skip-column-name`
+
+
+case $1 in
+   config)
+
+# Inicio  Configuracion
+
+
+echo graph_title Bittorrent Tracker
+echo graph_args --base 1000 -l 0
+echo graph_vlabel Bittorrent Tracker Stats
+echo graph_category network
+echo graph_infoBittorrent Tracker Stats.
+echo Peers.label Peers
+echo Peers.info Seeders + Leechers. Conected all clients.
+echo Seeders.label Seeders
+echo Seeders.info A computer that has a complete copy of the torrent.
+echo Leechers.label Leecher
+echo Leechers.info "A computer that doesn't have the complete file".
+echo Torrents.label Torrents
+echo Torrents.info Number of Torrents tracking.
+
+# Fin Configuracion
+
+        exit 0;;
+esac
+
+
+# Inicio Datos
+
+echo "Peers.value $peers"
+echo "Seeders.value $seeders"
+echo "Leechers.value $leechers"
+echo "Torrents.value $torrents"
+
+# Fin Datos
