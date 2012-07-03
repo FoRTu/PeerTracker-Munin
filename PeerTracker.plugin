@@ -1,15 +1,28 @@
 #!/bin/bash
 
-peers=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(ip) from pt_peers" --skip-column-name`
-seeders=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(state) FROM pt_peers WHERE state=1" --skip-column-name`
-leechers=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(state) FROM pt_peers WHERE state=0" --skip-column-name`
-torrents=`mysql -u root -pburtonsql -D peertracker -e "SELECT count(DISTINCT info_hash) FROM pt_peers" --skip-column-name`
+# Mysql Database host // Equipo en el que esta MySQL.
+HOST="localhost"
+
+# MySQL Database name // Nombre de la base de datos en MySQL.
+DATABASE="peertracker"
+
+# MySQL username to connect to the database // Usuario de MySQL para conectar a la base de datos.
+USER="peertracker"
+
+# MySQL user password  // Contraseña del usuario de MySQL.
+PASSWD="burtontracker"
+
+# Get Peers, Seeders, Leechers and Torrents from DB // Obtener Peers, Seeders, Leechers y Torrents desde la bases de datos.
+peers=`mysql -h $HOST -u $USER -p$PASSWD -D $DATABASE -e "SELECT count(ip) from pt_peers" --skip-column-name`
+seeders=`mysql -h $HOST -u $USER -p$PASSWD -D $DATABASE -e "SELECT count(state) FROM pt_peers WHERE state=1" --skip-column-name`
+leechers=`mysql -h $HOST -u $USER -p$PASSWD -D $DATABASE -e "SELECT count(state) FROM pt_peers WHERE state=0" --skip-column-name`
+torrents=`mysql -h $HOST -u $USER -p$PASSWD -D $DATABASE -e "SELECT count(DISTINCT info_hash) FROM pt_peers" --skip-column-name`
 
 
 case $1 in
    config)
 
-# Inicio  Configuracion
+# Configure // Configuracion.
 
 
 echo graph_title Bittorrent Tracker
@@ -26,17 +39,17 @@ echo Leechers.info "A computer that doesn't have the complete file".
 echo Torrents.label Torrents
 echo Torrents.info Number of Torrents tracking.
 
-# Fin Configuracion
+# End of Configuration // Fin de la Configuracion.
 
         exit 0;;
 esac
 
 
-# Inicio Datos
+# Output data // Datos
 
 echo "Peers.value $peers"
 echo "Seeders.value $seeders"
 echo "Leechers.value $leechers"
 echo "Torrents.value $torrents"
 
-# Fin Datos
+# End of data // Datos
