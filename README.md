@@ -12,8 +12,22 @@ This is a **plugin for [Munin][1]** with which we can monitor the bittorrent tra
 After **[downloading the plugin][3]**, the **installation** is simple You have to **copy** the file **PeerTracker.sh** to the  Munin plugins folder. This folder is **/etc/munin/plugins**:
 
     # cp  PeerTrackr.sh  /etc/munin/plugins/
+    
+Now edit the copied file to fill the necessary configuration data:
 
-Once copied you have to **restart the Munin daemon**. According to the operating system you have, you can restart the daemon differently. For example in **Debian** and **Ubuntu** you can do this in two ways:
+    # Mysql Database host
+    HOST="localhost"
+    
+    # MySQL Database name
+    DATABASE="MySQL_peertrackerDB"
+    
+    # MySQL user PeerTrackr used to connect to the database
+    USER="MySQL_user_peertracker"
+    
+    # MySQL user password
+    PASSWD="MySQL_user_password"
+
+Once copied and edited, you have to **restart the Munin daemon**. According to the operating system you have, you can restart the daemon differently. For example in **Debian** and **Ubuntu** you can do this in two ways:
 
     # service munin-node restart
 
