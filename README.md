@@ -45,7 +45,21 @@ Despues de **[descargar el plugin][3]**, la instalación es simple. Solamente te
 
     # cp  PeerTrackr.sh  /etc/munin/plugins/
 
-Una vez copiado solo hace falta **reiniciar el demonio de Munin**. El reinicio puedes hacerlo de distinta manera según el sistema operativo que tengas. Por ejemplo en **Debian** como en **Ubuntu** puedes hacerlo de dos maneras:
+Una vez copiado ahora editamos el archivo y en la seccion de configuracion rellenamos los datos necesarios:
+
+    # Equipo en el que esta MySQL.
+    HOST="localhost"
+
+    # Nombre de la base de datos en MySQL.
+    DATABASE="MySQL_peertrackerDB"
+
+    # Usuario de MySQL que utiliza PeerTracker para conectar a MySQL.
+    USER="MySQL_user_peertracker"
+
+    # Contraseña del usuario de MySQL que utiliza PeerTracker.
+    PASSWD="MySQL_user_password"
+
+Una vez copiado y editado el archivo, solo hace falta **reiniciar el demonio de Munin**. El reinicio puedes hacerlo de distinta manera según el sistema operativo que tengas. Por ejemplo en **Debian** como en **Ubuntu** puedes hacerlo de dos maneras:
 
     # service munin-node restart
 
