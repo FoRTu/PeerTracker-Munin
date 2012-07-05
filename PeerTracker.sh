@@ -1,16 +1,20 @@
 #!/bin/bash
 
+############## CONFIGGURATION // CONFIGURTACION #############
+#
 # Mysql Database host // Equipo en el que esta MySQL.
 HOST="localhost"
-
+#
 # MySQL Database name // Nombre de la base de datos en MySQL.
 DATABASE="peertrackerDB"
-
+#
 # MySQL username to connect to the database // Usuario de MySQL para conectar a la base de datos.
 USER="user_peertracker"
-
+#
 # MySQL user password  // Contraseña del usuario de MySQL.
 PASSWD="password"
+#
+######## End of Configuration // Finde configuracion ######### 
 
 # Get Peers, Seeders, Leechers and Torrents from DB // Obtener Peers, Seeders, Leechers y Torrents desde la bases de datos.
 peers=`mysql -h $HOST -u $USER -p$PASSWD -D $DATABASE -e "SELECT count(ip) from pt_peers" --skip-column-name`
