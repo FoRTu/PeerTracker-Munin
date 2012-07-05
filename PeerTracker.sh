@@ -6,13 +6,13 @@
 HOST="localhost"
 #
 # MySQL Database name // Nombre de la base de datos en MySQL.
-DATABASE="peertrackerDB"
+DATABASE="MySQL_peertrackerDB"
 #
-# MySQL username to connect to the database // Usuario de MySQL para conectar a la base de datos.
-USER="user_peertracker"
+# MySQL user PeerTrackr used to connect to the database // Usuario de MySQL que utiliza PeerTrackr para conectar a la base de datos.
+USER="MySQL_user_peertracker"
 #
 # MySQL user password  // Contraseña del usuario de MySQL.
-PASSWD="password"
+PASSWD="MySQL_user_password"
 #
 ######## End of Configuration // Finde configuracion ######### 
 
