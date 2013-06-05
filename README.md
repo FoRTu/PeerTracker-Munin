@@ -85,5 +85,5 @@ _Todos los `comandos` que se ejecuten en la línea de comandos se deberán ejecu
 
 
 [1]: http://munin-monitoring.org/
-[2]: http://code.google.com/p/peertracker/
+[2]: https://github.com/JonnyJD/peertracker
 [3]: https://github.com/FoRTu/PeerTracker-Munin/zipball/master
